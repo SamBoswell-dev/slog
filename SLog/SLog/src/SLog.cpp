@@ -2,15 +2,13 @@
 
 void SLog::Init()
 {
-	std::cout << (GetConsoleWindow() == nullptr) << std::endl;
-}
-
-void SLog::HasConsole() const
-{
-	/*if (GetConsoleWindow() == nullptr)
+	if (AllocConsole())
 	{
-
-	}*/
-
-	AllocConsole();
+		FILE* fp;
+		freopen_s(&fp, "CONOUT$", "w", stdout);
+		freopen_s(&fp, "CONOUT$", "w", stderr);
+		freopen_s(&fp, "CONOUT$", "r", stdin);
+	}
+	
+	std::cout << (GetConsoleWindow() != nullptr) << std::endl;
 }
