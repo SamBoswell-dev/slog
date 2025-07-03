@@ -1,5 +1,9 @@
 #include "SLog.h"
 
+std::string SLog::m_Format = "";
+std::string SLog::m_FormatEx = "";
+
+
 void SLog::Init()
 {
 	if (AllocConsole())
